@@ -3,7 +3,7 @@ require "json"
 gmaps_key = ENV.fetch("GOOGLEMAPSAPI")
 pirate_key = ENV.fetch("PIRATEWEATHER")
 
-line_width = 45
+line_width = 40
 puts "=|" * line_width
 puts "Will you need an umbrella today?".center(line_width)
 puts "|=" * line_width
@@ -14,7 +14,7 @@ location = gets.chomp
 
 puts "Checking conditions in #{location}..."
 
-gmaps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{user_location}&key=#{gmaps_key}"
+gmaps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{location}&key=#{gmaps_key}"
 
 gmaps_data = HTTP.get(gmaps_url)
 
