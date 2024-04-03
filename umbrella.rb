@@ -76,6 +76,8 @@ next_twelve_hours.each do |hour_hash|
   end
 end
 
+puts ""
+
 if any_precipitation == true
   puts "You should probably take an umbrella!"
 else
