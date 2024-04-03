@@ -13,6 +13,7 @@ puts "Where will you be walking?"
 location = gets.chomp
 
 puts "Checking conditions in #{location}..."
+puts ""
 
 gmaps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{location}&key=#{gmaps_key}"
 
@@ -32,7 +33,6 @@ latitude = location_hash.fetch("lat")
 
 longitude = location_hash.fetch("lng")
 
-puts "Your coordinates are #{latitude}, #{longitude}."
 
 pirate_weather_url = "https://api.pirateweather.net/forecast/#{pirate_key}/#{latitude},#{longitude}"
 
@@ -44,14 +44,14 @@ currently_hash = parsed_pirate_data.fetch("currently")
 
 current_temp = currently_hash.fetch("temperature")
 
-puts "It's currently #{current_temp}°F."
+puts "It's currently #{current_temp}°F at your location (#{latitude}, #{longitude})."
 
 minutely_hash = parsed_pirate_data.fetch("minutely", false)
 
 if minutely_hash
   next_hour_summary = minutely_hash.fetch("summary")
   next_hour_summary = next_hour_summary
-  puts "The next hour's weather is #{next_hour_summary}."
+  puts "It should be #{next_hour_summary} for the next hour."
 end
 
 hourly_hash = parsed_pirate_data.fetch("hourly")
