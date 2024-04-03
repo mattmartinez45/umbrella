@@ -4,9 +4,9 @@ gmaps_key = ENV.fetch("GOOGLEMAPSAPI")
 pirate_key = ENV.fetch("PIRATEWEATHER")
 
 line_width = 45
-puts "-" * line_width
+puts "~" * line_width
 puts "Will you need an umbrella today?".center(line_width)
-puts "-" * line_width
+puts "~" * line_width
 puts ""
 
 puts "Where will you be walking?"
@@ -36,7 +36,7 @@ puts "Your coordinates are #{latitude}, #{longitude}."
 
 pirate_weather_url = "https://api.pirateweather.net/forecast/#{pirate_key}/#{latitude},#{longitude}"
 
-raw_pirate_data = HTTP.get(pirate_key)
+raw_pirate_data = HTTP.get(pirate_weather_url)
 
 parsed_pirate_data = JSON.parse(raw_pirate_data)
 
