@@ -3,10 +3,10 @@ require "json"
 gmaps_key = ENV.fetch("GOOGLEMAPSAPI")
 pirate_key = ENV.fetch("PIRATEWEATHER")
 
-line_width = 40
-puts "=|" * line_width
+line_width = 45
+puts "|" * line_width
 puts "Will you need an umbrella today?".center(line_width)
-puts "|=" * line_width
+puts "|" * line_width
 puts ""
 
 puts "Where will you be walking?"
@@ -20,7 +20,7 @@ gmaps_data = HTTP.get(gmaps_url)
 
 parsed_g_data = JSON.parse (gmaps_data)
 
-results_array = parsed_gmaps_data.fetch("results")
+results_array = parsed_g_data.fetch("results")
 
 first_result_hash = results_array.at(0)
 
