@@ -50,7 +50,7 @@ minutely_hash = parsed_pirate_data.fetch("minutely", false)
 
 if minutely_hash
   next_hour_summary = minutely_hash.fetch("summary")
-  next_hour_summary = next_hour_summary.to_s.undercase
+  next_hour_summary = next_hour_summary.to_s.lowercase
   puts "The next hour's weather is #{next_hour_summary}."
 end
 
