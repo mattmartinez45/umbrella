@@ -7,9 +7,9 @@ line_width = 45
 puts "~" * line_width
 puts "Will you need an umbrella today?".center(line_width)
 puts "~" * line_width
-puts ""
 
 puts "Where will you be walking?"
+puts ""
 location = gets.chomp
 
 puts "Checking conditions in #{location}..."
