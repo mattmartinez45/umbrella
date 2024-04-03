@@ -45,13 +45,13 @@ currently_hash = parsed_pirate_data.fetch("currently")
 
 current_temp = currently_hash.fetch("temperature")
 
-puts "It's currently #{current_temp}°F at your location (#{latitude}, #{longitude})."
+puts "It's currently #{current_temp}°F at your location of (#{latitude}, #{longitude})."
 
 minutely_hash = parsed_pirate_data.fetch("minutely", false)
 
 if minutely_hash
   next_hour_summary = minutely_hash.fetch("summary")
-  next_hour_summary = next_hour_summary
+  next_hour_summary = next_hour_summary.to_s.downcase
   puts "It should be #{next_hour_summary} for the next hour."
 end
 
