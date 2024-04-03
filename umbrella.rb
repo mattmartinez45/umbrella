@@ -11,6 +11,7 @@ puts "~" * line_width
 puts "Where will you be walking?"
 puts ""
 location = gets.chomp
+puts ""
 
 puts "Checking conditions in #{location}..."
 puts ""
@@ -62,6 +63,8 @@ next_twelve_hours = hourly_data_array[1..12]
 precip_prob_threshold = 0.10
 
 any_precipitation = false
+
+puts ""
 
 next_twelve_hours.each do |hour_hash|
   precip_prob = hour_hash.fetch("precipProbability")
