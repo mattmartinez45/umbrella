@@ -92,7 +92,7 @@ prob_coordinates = []
 
 next_twelve_hours.each do |hour_chart|
   precipitation_prob = hour_chart.fetch("precipProbability")
-  precip_coordinates.push(precipitation_prob)
+  prob_coordinates.push(precipitation_prob)
   precipitation_time = Time.at(hour_chart.fetch("time"))
   seconds_from_moment = precipitation_time - Time.now
   hours_from_moment = seconds_from_moment / 60 / 60
