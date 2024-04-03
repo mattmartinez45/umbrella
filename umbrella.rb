@@ -88,13 +88,16 @@ else
   puts "You'll probably be fine without an umbrella!"
 end
 
-coordinates = []
+prob_coordinates = []
+
 next_twelve_hours.each do |hour_chart|
   precipitation_prob = hour_chart.fetch("precipProbability")
-
+  precip_coordinates.push(precipitation_prob)
   precipitation_time = Time.at(hour_chart.fetch("time"))
   seconds_from_moment = precipitation_time - Time.now
   hours_from_moment = seconds_from_moment / 60 / 60
 
   puts "In #{hours_from_moment.round} hours, there is a #{(precipitation_prob * 100).round}% chance of precipitation."
 end
+
+puts AsciiCharts::Cartesian.new([[0, 0], [1, prob_coordinates(0)], [2, 7], [3, 15], [4, 4]], :bar => true, :hide_zero => true).draw
