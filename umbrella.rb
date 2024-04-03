@@ -1,5 +1,6 @@
 require "http"
 require "json"
+require "ascii_charts"
 gmaps_key = ENV.fetch("GOOGLEMAPSAPI")
 pirate_key = ENV.fetch("PIRATEWEATHER")
 
@@ -85,4 +86,15 @@ if any_precipitation == true
   puts "You should probably take an umbrella!"
 else
   puts "You'll probably be fine without an umbrella!"
+end
+
+coordinates = []
+next_twelve_hours.each do |hour_chart|
+  precipitation_prob = hour_chart.fetch("precipProbability")
+
+  precipitation_time = Time.at(hour_chart.fetch("time"))
+  seconds_from_moment = precipitation_time - Time.now
+  hours_from_moment = seconds_from_moment / 60 / 60
+
+  puts "In #{hours_from_moment.round} hours, there is a #{(precipitation_prob * 100).round}% chance of precipitation."
 end
