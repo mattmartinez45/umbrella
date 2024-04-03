@@ -4,9 +4,9 @@ gmaps_key = ENV.fetch("GOOGLEMAPSAPI")
 pirate_key = ENV.fetch("PIRATEWEATHER")
 
 line_width = 45
-puts "|" * line_width
+puts "-" * line_width
 puts "Will you need an umbrella today?".center(line_width)
-puts "|" * line_width
+puts "-" * line_width
 puts ""
 
 puts "Where will you be walking?"
