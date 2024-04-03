@@ -45,7 +45,7 @@ currently_hash = parsed_pirate_data.fetch("currently")
 
 current_temp = currently_hash.fetch("temperature")
 
-puts "It's currently #{current_temp}°F at your location of (#{latitude}, #{longitude})."
+puts "It's currently #{current_temp}°F in #{location}."
 
 minutely_hash = parsed_pirate_data.fetch("minutely", false)
 
