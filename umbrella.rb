@@ -36,7 +36,7 @@ puts "Your coordinates are #{latitude}, #{longitude}."
 
 pirate_weather_url = "https://api.pirateweather.net/forecast/#{pirate_key}/#{latitude},#{longitude}"
 
-raw_pirate_data = HTTP.get(pirate_weather_key)
+raw_pirate_data = HTTP.get(pirate_key)
 
 parsed_pirate_data = JSON.parse(raw_pirate_data)
 
